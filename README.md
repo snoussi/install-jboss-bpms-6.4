@@ -1,0 +1,1 @@
+# install-jboss-bpms-6.4
