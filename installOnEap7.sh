@@ -3,8 +3,7 @@
 PRODUCT="Red Hat JBoss BPM Suite 6.4 on EAP7"
 
 BPMS=jboss-bpmsuite-6.4.0.GA-deployable-eap7.x
-BPMS_PATCH_WILDCARD=jboss-bpmsuite-6.4.?-patch*
-BPMS_PATCH=jboss-bpmsuite-6.4.5-patch
+BPMS_PATCH_WILDCARD=jboss-bpmsuite-6.4.[1-6]-patch*
 
 EAP=jboss-eap-7.0.0
 EAP_PATCH=jboss-eap-7.0.8-patch
@@ -61,13 +60,12 @@ else
   exit
 fi
 
-echo
-echo "Need to download all patch package from the Customer Portal" 
-echo "and place it in the $SRC_DIR directory to proceed..."
-for f in $BPMS_PATCH_WILDCARD; do
-  if [ -r $SRC_DIR/$f ] || [ -L $SRC_DIR/$f ]; then
+
+# "Need to download all patch package from the Customer Portal and place it in the $SRC_DIR directory ..."
+for f in $(ls $SRC_DIR/$BPMS_PATCH_WILDCARD); do
+ if [ -r $f ] || [ -L $f ]; then
     echo "JBoss Product patches $f are present..."
-  fi
+ fi
 done
 
 
@@ -76,13 +74,15 @@ if [ -x $JBOSS_HOME ]; then
   echo "  - existing JBoss product install detected in $JBOSS_HOME !"
   echo "  - existing JBoss product install removed..."
   echo
-  rm -rf $TARGET
+  rm -rf $JBOSS_HOME
 fi
-if [ -x $SRC_DIR/patch_tmp ]; then
+if [ -x ./patch_tmp ]; then
   echo "  - existing JBoss product patch_tmp detected and removed..."
   echo
   rm -rf ./patch_tmp
 fi
+
+
 
 # Install EAP
 echo
@@ -131,11 +131,14 @@ fi
 echo
 echo "Applying patches on $PRODUCT now..."
 echo
-mkdir -p $SRC_DIR/patch_tmp
+mkdir -p ./patch_tmp
+cd $SRC_DIR
 for f in $BPMS_PATCH_WILDCARD; do
-  unzip -qo $SRC_DIR/$f -d $SRC_DIR/patch_tmp
-  (cd $SRC_DIR/patch_tmp/${f::-4} && exec ./apply-updates.sh ../../$JBOSS_HOME eap7.x);
+  echo " >>> Applying $f ...";
+  unzip -qo $f -d ../patch_tmp ;
+  (cd ../patch_tmp/${f::-4} && exec ./apply-updates.sh ../../$JBOSS_HOME eap7.x);
 done
+cd ..
 
 rm -rf ./patch_tmp
 if [ $? -ne 0 ]; then
