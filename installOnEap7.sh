@@ -128,6 +128,8 @@ if [ $? -ne 0 ]; then
   exit
 fi
 
+exit 0
+
 echo
 echo "Applying patches on $PRODUCT now..."
 echo
@@ -136,7 +138,7 @@ cd $SRC_DIR
 for f in $BPMS_PATCH_WILDCARD; do
   echo " >>> Applying $f ...";
   unzip -qo $f -d ../patch_tmp ;
-  (cd ../patch_tmp/${f::-4} && exec ./apply-updates.sh ../../$JBOSS_HOME eap7.x);
+  (cd ../patch_tmp/${f%????} && exec ./apply-updates.sh ../../$JBOSS_HOME eap7.x);
 done
 cd ..
 
