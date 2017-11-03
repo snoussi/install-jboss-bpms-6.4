@@ -128,8 +128,6 @@ if [ $? -ne 0 ]; then
   exit
 fi
 
-exit 0
-
 echo
 echo "Applying patches on $PRODUCT now..."
 echo
