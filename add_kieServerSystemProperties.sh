@@ -3,6 +3,7 @@ AUTHORS1="Rachid Snoussi"
 
 echo "Start Server first by running this command: ./standalone.sh --admin-only"
 
+#TODO: Edit EAP/BPMS path
 TARGET=./target
 JBOSS_HOME=$TARGET/jboss-eap-6.4
 CLI_SCRIPT=add_kieServerSystemProperties.cli
