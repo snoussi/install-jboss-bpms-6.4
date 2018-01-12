@@ -14,10 +14,11 @@ Below the list of installation packages to download from the Red Hat Customer Po
 - Red Hat JBoss BPM Suite 6.4 Update 4
 - Red Hat JBoss BPM Suite 6.4 Update 5
 - Red Hat JBoss BPM Suite 6.4 Update 6 [2]
+- Red Hat JBoss BPM Suite 6.4 Update 7
 
 ### BPMS 6.4 offline maven repository
 - Red Hat JBoss BPM Suite 6.4.0 Maven Repository
-- Red Hat JBoss BPM Suite 6.4 Update 6 Incremental Maven Repository
+- Red Hat JBoss BPM Suite 6.4 Update 7 Incremental Maven Repository
 
 ### BPMS 6.4 supplementary tools (including database scripts)
 - Red Hat JBoss BPM Suite 6.4.0 Supplementary Tools
