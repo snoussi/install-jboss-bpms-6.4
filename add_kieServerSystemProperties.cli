@@ -1,0 +1,19 @@
+#
+# Configures IPS (Intelligent Process Server) XSystem properties.
+#
+
+/system-property=org.kie.server.user:add(value="kieserverUser")
+/system-property=org.kie.server.pwd:add(value="kieserver@user1!")
+/system-property=org.kie.server.location:add(value="http://localhost:8080/kie-server/services/rest/server")
+
+/system-property=org.kie.server.controller:add(value="http://localhost:8080/business-central/rest/controller")
+/system-property=org.kie.server.controller.user:add(value="controllerUser")
+/system-property=org.kie.server.controller.pwd:add(value="controller@user1!")
+
+/system-property=org.kie.server.id:add(value="local-kie-cluster")
+
+#
+# For IPS only nodes
+#
+#/system-property=org.uberfire.nio.git.ssh.enabled:add(value="false")
+#/system-property=org.uberfire.nio.git.daemon.enabled:add(value="false")
