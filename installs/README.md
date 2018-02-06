@@ -13,7 +13,7 @@ Below the list of installation packages to download from the Red Hat Customer Po
 - Red Hat JBoss BPM Suite 6.4 Update 3
 - Red Hat JBoss BPM Suite 6.4 Update 4
 - Red Hat JBoss BPM Suite 6.4 Update 5
-- Red Hat JBoss BPM Suite 6.4 Update 6 [2]
+- Red Hat JBoss BPM Suite 6.4 Update 6 [1]
 - Red Hat JBoss BPM Suite 6.4 Update 7
 
 ### BPMS 6.4 offline maven repository
@@ -23,6 +23,5 @@ Below the list of installation packages to download from the Red Hat Customer Po
 ### BPMS 6.4 supplementary tools (including database scripts)
 - Red Hat JBoss BPM Suite 6.4.0 Supplementary Tools
 
-[1] Please note that, JBoss BPMS patches are not cumulative, all the update packages need to be applied to the main installation.
 
-[2] This patch introduces a small change into the database schema. You must apply the bpms-6.4-to-7.0.sql script to your database before you run Red Hat JBoss BPM Suite or Red Hat JBoss BRMS 6.4.6. Detailed instructions on how to obtain this script can be found in the following Red Hat Knowledgebase article : https://access.redhat.com/solutions/3211361
+[1] This patch introduces a small change into the database schema. You must apply the bpms-6.4-to-7.0.sql script to your database before you run Red Hat JBoss BPM Suite or Red Hat JBoss BRMS 6.4.6. Detailed instructions on how to obtain this script can be found in the following Red Hat Knowledgebase article : https://access.redhat.com/solutions/3211361
